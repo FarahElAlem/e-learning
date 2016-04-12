@@ -15,12 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::auth();
-Route::get('/home',function(){
-  return view('welcome');
-});
+// Route::get('/home',function(){
+//   return view('welcome');
+// });
 //Route::get('/course', 'CourseController@usercourse');
-Route::get('/courses','CourseController@courses');
-Route::get('/course/{courseid}','Coursecontroller@course');
+// Route::get('/courses','CourseController@courses');
+// Route::get('/course/{courseid}','Coursecontroller@course');
+Route::resource('course','CourseController');
+
+
+
 Route::any('{path?}', function()
 {
     return File::get(public_path() . '/index.html');

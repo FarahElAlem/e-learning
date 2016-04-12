@@ -3,31 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Role;
+use Illuminate\Http\Response;
 use App\Course;
+use Symfony\Component\Console\Input\Input;
 
 class CourseController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return Response()->json(Course::get());
     }
 
-    public function usercourse(Request $request)
+    public function create(Request $request)
     {
-        return view('courses.usercourses');
+        // check input parameter
+        if (is_null($request->input('name')) || is_null($request->input('description'))) {
+          return Response()->json(array('success' => false), 404);
+        }
+
+
+
+        Course::create(array(
+        'name' => $request->input('name'),
+        'description' => $request->input('description'),
+      ));
+
+        return Response()->json(array('success' => true));
     }
 
-    public function courses(Request $request)
+    public function update(Request $request,$id)
     {
-        $courses = Course::all();
-        return view('courses.courses', [
-        'courses' => $courses,
-      ]);
+        $course = Course::findOrFail($id);
+        $course->name = $request->input('name');
+        $course->description = $request->input('description');
+        $course->save();
+
+        return Response()->json(array('success' => true));
     }
 
-    public function course($id, Request $request)
+    public function destroy($id)
     {
-      return view('course.index');
+      $course = Course::destroy($id);
+
+      return Response()->json(array('success'=>$course==1));
     }
+
+    
 }
