@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Quiz;
 use App\Course;
 use App\Section;
 use App\Content;
@@ -44,7 +45,7 @@ class SubjectTableSeeder extends Seeder
         'article' => 'first article on section one',
         'section_id' => 2
       ));
-
+      
 
     }
 }

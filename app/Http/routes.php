@@ -22,6 +22,7 @@ Route::auth();
 // Route::get('/courses','CourseController@courses');
 // Route::get('/course/{courseid}','Coursecontroller@course');
 Route::resource('course','CourseController');
+Route::resource('section','SectionController');
 
 
 

@@ -7,19 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     protected $fillable = ['description', 'title','order','course_id','section_id'];
+    protected $hidden = ['created_at','updated_at'];
 
     public function quiz()
     {
-        $this->hasOne('App/Quiz');
+        return $this->hasOne('App\Quiz');
     }
 
     public function video()
     {
-        $this->hasOne('App/Video');
+        return $this->hasOne('App\Video');
     }
 
     public function content()
     {
-        $this->hasOne('App/Content');
+      return   $this->hasOne('App\Content');
+    }
+
+    public function section()
+    {
+      return $this->hasMany('App\Section','section_id');
+    }
+
+    public function sectionChild()
+    {
+      return $this->section()->with('sectionChild');
     }
 }

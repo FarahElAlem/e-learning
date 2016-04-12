@@ -48,5 +48,9 @@ class CourseController extends Controller
       return Response()->json(array('success'=>$course==1));
     }
 
-    
+    public function show($id)
+    {
+      return Response()->json(Course::findOrFail($id));
+    }
+
 }
