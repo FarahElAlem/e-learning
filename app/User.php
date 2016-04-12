@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 class User extends Authenticatable
 {
+    use EntrustUserTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +24,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    *
+    * Get all of the courses for the user.
+    *
+    */
+
+    public function courses()
+    {
+      return $this->belongsToMany('App\Course','course_enrolls');
+    }
 }
