@@ -13,6 +13,7 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers',function(Blueprint $table){
+          $table->increments('id');
           $table->integer('quize_id')->unsigned();
           $table->foreign('quize_id')->references('id')->on('quizes')
               ->onUpdate('cascade')->onDelete('cascade');

@@ -11,7 +11,8 @@ class CourseController extends Controller
 {
     public function index()
     {
-        return Response()->json(Course::get());
+        $course = Course::get();
+        return Response()->json($course);
     }
 
     public function create(Request $request)
@@ -45,7 +46,7 @@ class CourseController extends Controller
     {
       $course = Course::destroy($id);
 
-      return Response()->json(array('success'=>$course==1));
+      return Response()->json(array('success'=>(bool)$course));
     }
 
     public function show($id)

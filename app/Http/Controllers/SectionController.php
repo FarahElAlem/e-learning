@@ -54,7 +54,7 @@ class SectionController extends Controller
   public function show($id)
   {
     $section = Section::findOrFail($id);
-    $section->quiz;
+    $section->load('quiz','content','video');
     return Response()->json($section);
   }
 }

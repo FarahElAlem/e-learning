@@ -13,4 +13,9 @@ class Quiz extends Model
     {
         return $this->belongsTo('App\Section');
     }
+
+    public function answer()
+    {
+      return $this->hasMany('App\Answer');
+    }
 }

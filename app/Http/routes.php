@@ -12,21 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::auth();
-// Route::get('/home',function(){
-//   return view('welcome');
-// });
-//Route::get('/course', 'CourseController@usercourse');
-// Route::get('/courses','CourseController@courses');
-// Route::get('/course/{courseid}','Coursecontroller@course');
-Route::resource('course','CourseController');
-Route::resource('section','SectionController');
-
-
-
-Route::any('{path?}', function()
+Route::group(array('prefix'=>'api'),function()
 {
-    return File::get(public_path() . '/index.html');
-})->where("path", ".+");
+  Route::resource('course','CourseController');
+  Route::resource('section','SectionController');
+  Route::resource('content','ContentController');
+  Route::resource('video','VideoController');
+  Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+  Route::post('authenticate', 'AuthenticateController@authenticate');
+});
