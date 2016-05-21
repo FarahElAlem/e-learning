@@ -11,8 +11,8 @@
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">User</a></li>
-      <li class="active">All</li>
+      <li><a href="#">Course</a></li>
+      <li class="active">All Course</li>
     </ol>
   </section>
 
