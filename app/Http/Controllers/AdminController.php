@@ -24,4 +24,8 @@ class AdminController extends Controller
       return view('admin.adduser');
     }
 
+    public function editUser($id,Request $request){
+      $data['id'] = $id;
+      return view('admin.edituser',$data);
+    }
 }
