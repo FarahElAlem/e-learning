@@ -1,5 +1,5 @@
 (function() {
-  angular.module('AdminApp',['datatables'],function($interpolateProvider) {
+  angular.module('AdminApp',['datatables','ngFileUpload','textAngular'],function($interpolateProvider) {
 	$interpolateProvider.startSymbol('<%');
 	$interpolateProvider.endSymbol('%>');
 })

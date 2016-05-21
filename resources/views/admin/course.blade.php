@@ -20,7 +20,7 @@
   <section class="content" ng-controller="CourseListController">
     <div class="row"  ng-repeat="course in course">
       <div class="col-xs-12"  >
-        <div class="box box-default collapsed-box">
+        <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
 
@@ -38,7 +38,7 @@
   <i class="material-icons mdl-color-text--black">description</i>
 </button>
 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-  <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
+  <a href="{{ url('/admin/course')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
 </button>
 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="deleteCourse(course.id)">
   <i class="material-icons f18 mdl-color-text--red-400">clear</i>

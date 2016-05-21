@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         apply the skin class to the body tag so the changes take effect.
   -->
   <link rel="stylesheet" href="{{ URL::asset('dist/css/skins/skin-blue.min.css') }}">
-
+  <link rel='stylesheet' href="{{ URL::asset('/bower_components/textAngular/dist/textAngular.css') }}">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -261,14 +261,14 @@ desired effect
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Course</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="#">All Course</a></li>
+            <li><a href="{{url('admin/course')}}">All Course</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>User</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="#">All</a></li>
-            <li><a href="#">Add Users</a></li>
+            <li><a href="{{url('admin/user')}}">All</a></li>
+            <li><a href="{{url('admin/user/add')}}">Add Users</a></li>
           </ul>
         </li>
         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
@@ -381,13 +381,18 @@ desired effect
 <script src="{{ URL::asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('bower_components/angular/angular.js') }}"></script>
+<script src="{{ URL::asset('bower_components/ng-file-upload/ng-file-upload.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/adminApp.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/user-data.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CreateUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/EditUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/DeleteUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseEditController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
+<script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>
+<script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-sanitize.min.js') }}"></script>
+<script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular.min.js') }}"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
