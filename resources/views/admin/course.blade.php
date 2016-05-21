@@ -24,12 +24,11 @@
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
             <button class="btn btn-default btn-flat"  ng-click="openEditPage(course.id)">
-              <i class="fa fa-fw fa-cog"></i>
+              <i class="fa fa-align-left"></i>
             </button>
 
             <div class="box-tools pull-right">
-            <button class="btn btn-default btn-flat"  ng-click="openEditPage(course.id)">
-  <i class="fa fa-fw fa-cog"></i>
+              <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="class="fa fa-fw fa-cog""></i></a>
 			</button>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
               </button>
@@ -47,9 +46,7 @@
             
 			</div>
             <div class="col-md-2">
-<button class="btn btn-default btn-flat">
-  <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
-</button>
+
 			</div>
             <div class="col-md-3"></div>
             <div class="col-md-1">
