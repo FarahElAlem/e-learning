@@ -38,12 +38,12 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2">
-            <button class="btn btn-block btn-warning"  ng-click="openEditPage(course.id)">
-  <i class="material-icons mdl-color-text--black">description</i>
+            <button class="btn btn-default btn-flat"  ng-click="openEditPage(course.id)">
+  <i class="fa fa-fw fa-cog"></i>
 </button>
 			</div>
             <div class="col-md-2">
-<button class="btn btn-block btn-info">
+<button class="btn btn-default btn-flat">
   <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
 </button>
 			</div>
