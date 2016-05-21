@@ -28,4 +28,8 @@ class AdminController extends Controller
       $data['id'] = $id;
       return view('admin.edituser',$data);
     }
+
+    public function course(){
+      return view('admin.course');
+    }
 }

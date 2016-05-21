@@ -386,6 +386,7 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CreateUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/EditUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/DeleteUserController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

@@ -17,7 +17,7 @@ function CreateUserController($http, $scope, $window, $location, config) {
                 password_confirmation: $scope.repassword
             }
         }).then(function(response) {
-            $location.path('/user');
+            $window.location.href = config.admin+'user';
         }, function(response) {
           $scope.msg = response.data;
         });

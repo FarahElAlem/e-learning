@@ -7,7 +7,7 @@ angular.module('AdminApp').controller('DeleteUserController', ActionUserControll
           method:'DELETE',
           url: config.url+'user/'+$scope.id
         }).then(function(response){
-            $location.path('/users/all');
+          $window.location.href = config.admin+'user';
         },function(response){
           alert('NOT OK');
         });

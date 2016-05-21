@@ -85,4 +85,6 @@ Route::group(array('prefix'=>'admin'),function()
   Route::get('user','AdminController@user');
   Route::get('user/add','AdminController@addUser');
   Route::get('user/edit/{id}','AdminController@editUser');
+  Route::get('course','AdminController@course');
+  Route::get('course/section/{id}','AdminController@section');
 });
