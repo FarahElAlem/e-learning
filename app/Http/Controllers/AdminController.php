@@ -32,4 +32,18 @@ class AdminController extends Controller
     public function course(){
       return view('admin.course');
     }
+
+    public function editCourse($id){
+      $data['id'] = $id;
+      return view('admin.editcourse',$data);
+    }
+
+    public function section($id) {
+       return "section";
+    }
+
+    public function courseList($id){
+      $data['id'] = $id;
+      return view('admin.editcourselist',$data);
+    }
 }

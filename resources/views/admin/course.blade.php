@@ -20,7 +20,7 @@
   <section class="content" ng-controller="CourseListController">
     <div class="row"  ng-repeat="course in course">
       <div class="col-xs-12"  >
-        <div class="box box-default collapsed-box">
+        <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
 
