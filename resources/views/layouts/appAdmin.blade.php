@@ -178,7 +178,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="{{ URL::asset('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -186,7 +186,7 @@ desired effect
                 <img src="{{ URL::asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{Auth::user()->name}} - Admin
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -236,7 +236,7 @@ desired effect
           <img src="{{ URL::asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{Auth::user()->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -256,7 +256,7 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
+        <li class="header">MAIN NAVIGATION</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Course</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -385,6 +385,7 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/user-data.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CreateUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/EditUserController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/DeleteUserController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

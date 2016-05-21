@@ -51,9 +51,10 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Admin
+              <input type="checkbox" ng-model="isAdmin"> Admin
             </label>
           </div>
+          <button type="button" ng-controller="DeleteUserController" ng-click="delete({{$id}})" class="btn btn-default btn-block btn-flat">.btn-block .btn-flat</button>
         </div>
         <!-- /.box-body -->
 
