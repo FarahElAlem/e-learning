@@ -36,12 +36,14 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="user in users">
+              <a href="{{ url('/edit/') }}<%user.id%>"  ng-repeat="user in users">
+              <tr>
                 <td><%$index%></td>
                 <td><%user.firstname%></td>
                 <td><%user.lastname%></td>
                 <td><%user.icon%></td>
               </tr>
+              </a>
               </tbody>
               <tfoot>
               </tfoot>
