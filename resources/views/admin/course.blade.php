@@ -23,8 +23,8 @@
         <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
-            <button type"button" class="btn btn-default btn-flat">
-              <i class="class="fa fa-align-left""></i><a href="{{ url('/admin/course/section')}}/<%course.id%>"></a>
+            <button type"button" class="btn btn-default">
+              <i class="class="fa fa-align-left""></i>
 			</button>
             <div class="box-tools pull-right">
                   <i class="fa fa-fw fa-cog" ng-click="openEditPage(course.id)"></i>
@@ -39,7 +39,7 @@
             <button ng-click="publish(course)" class="btn btn-success" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
             <div class="box-tools pull-right">
             <button class="btn btn-danger" ng-click="deleteCourse(course.id)">
-              <i class="material-icons f18 mdl-color-text--red-400">clear</i>
+              <i class="material-icons f18 mdl-color-text--red-400">Delete</i>
             </button>
             </div>
           </div>
