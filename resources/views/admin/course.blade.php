@@ -23,13 +23,11 @@
         <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
-            <button class="btn btn-default btn-flat">
+            <button type"button" class="btn btn-default btn-flat">
               <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="class="fa fa-align-left""></i></a>
 			</button>
             <div class="box-tools pull-right">
-                <button class="btn btn-default btn-flat"  ng-click="openEditPage(course.id)">
-                  <i class="fa fa-fw fa-cog"></i>
-                </button>
+                  <i class="fa fa-fw fa-cog" ng-click="openEditPage(course.id)"></i>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
               </button>
             </div>
@@ -38,7 +36,7 @@
           <!-- /.box-header -->
           <div class="box-body">
           
-            <button ng-click="publish(course)" class="btn btn-success" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
+            <button ng-click="publish(course)" class="btn btn-block btn-success btn-lg" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
             <div class="box-tools pull-right">
             <button class="btn btn-danger" ng-click="deleteCourse(course.id)">
               <i class="material-icons f18 mdl-color-text--red-400">clear</i>
