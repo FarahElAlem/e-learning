@@ -32,8 +32,9 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <button ng-click="publish(course)" class="mdl-button mdl-js-button while-text-color" ng-class="{'mdl-color--red-A400':course.statusText=='unPublish','mdl-color--green':course.statusText=='Publish'}"><%course.statusText%></button>
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="openEditPage(course.id)">
+          
+            <button ng-click="publish(course)" class="btn btn-block btn-lg" ng-class="{'danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"  ng-click="openEditPage(course.id)">
   <i class="material-icons mdl-color-text--black">description</i>
 </button>
 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
