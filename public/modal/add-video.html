@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title"><%action%> Content</h4>
+</div>
+<div class="modal-body">
+<div ng-show="content">
+<div class="m-b-10">
+  <h2><%section.title%> Lecture</h2>
+<form name="uploadVideo" class="m-b-10" ng-controller="VideoUploadController">
+<button ng-model="file" ngf-select name="file" ngf-max-size="2000MB" >
+Upload
+</button>
+<span ng-show="progress">
+<%percent%> %
+</span>
+<div class="m-10">
+<video class="art-preview lazy video-js vjs-default-skin vjs-big-play-centered vjs-16-9" ngf-src="file" data-setup='{ "example_option": true, "techOrder": ["html5","flash"] }' controls>
+</video>
+</div>
+<button ng-hide="progress" ng-click="upload(section.id)">
+Save
+</button>
+<button ng-hide="progress" ng-click="$parent.videoAdd=false;$parent.contentPanel = true;$parent.showTitle=true;">
+Cancel
+</button>
+</form>
+</div>
+<div ng-hide="content">
+<h2><%section.title%> Lecture</h2>
+  <div text-angular ng-model="section.article"></div>
+  </br>
+  <button ng-click="saveArticle()">
+      Save
+  </button>
+  <button ng-click="articleAdd=false;contentPanel=true;section.article=articleTemp;showTitle=true;">
+      Cancel
+  </button>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" ng-click="save()">Save changes</button>
+</div>

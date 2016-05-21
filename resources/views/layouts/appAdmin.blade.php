@@ -26,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet" href="{{ URL::asset('dist/css/skins/skin-blue.min.css') }}">
   <link rel='stylesheet' href="{{ URL::asset('/bower_components/textAngular/dist/textAngular.css') }}">
+  <link href="//vjs.zencdn.net/5.8/video-js.min.css" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -77,11 +78,11 @@ desired effect
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          
+
           <!-- /.messages-menu -->
 
           <!-- Notifications Menu -->
-          
+
           <!-- Tasks Menu -->
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
@@ -304,10 +305,12 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseItemController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/SectionController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/VideoUploadController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/AddSectionController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-sanitize.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular.min.js') }}"></script>
+<script src="//vjs.zencdn.net/5.8/video.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the

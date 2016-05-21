@@ -98,6 +98,7 @@ class SectionController extends Controller
     $section->load('quiz','content','video','section');
     foreach($section as $sec)
     {
+      $sec->section->load('quiz','content','video');
       array_push($data,$sec);
     }
     $course = Course::findOrFail($id)->name;
