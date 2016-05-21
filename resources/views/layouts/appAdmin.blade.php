@@ -389,6 +389,9 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/DeleteUserController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseEditController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseItemController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/SectionController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/VideoUploadController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-sanitize.min.js') }}"></script>
