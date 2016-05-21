@@ -18,28 +18,27 @@ class CourseController extends Controller
     public function create(Request $request)
     {
         // check input parameter
-        if (is_null($request->input('name')) || is_null($request->input('description'))) {
+        if (is_null($request->input('name')) || is_null($request->input('about'))) {
           return Response()->json(array('success' => false), 404);
         }
 
-
-
         Course::create(array(
         'name' => $request->input('name'),
-        'description' => $request->input('description'),
+        'about' => $request->input('about'),
       ));
 
-        return Response()->json(array('success' => true));
+        return Response()->json(array('success' => true,'data'=>Course::orderby('updated_at', 'desc')->first()));
     }
 
     public function update(Request $request,$id)
     {
         $course = Course::findOrFail($id);
-        $course->name = $request->input('name');
-        $course->description = $request->input('description');
+        if($request->has('name'))$course->name = $request->input('name');
+        if($request->has('description'))$course->description = $request->input('description');
+        if($request->has('status')) $course->status = (int)$request->input('status');
         $course->save();
 
-        return Response()->json(array('success' => true));
+        return Response()->json(array('success' => 'true'));
     }
 
     public function destroy($id)

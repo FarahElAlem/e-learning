@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 class User extends Authenticatable
@@ -15,7 +15,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
-
+    protected $appends = ['is_admin'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -34,5 +34,16 @@ class User extends Authenticatable
     public function courses()
     {
       return $this->belongsToMany('App\Course','course_enrolls');
+    }
+
+    public function getisAdminAttribute()
+    {
+      return $this->hasRole('admin');
+    }
+
+    public function detachAllRoles()
+    {
+      DB::table('role_user')->where('user_id', $this->id)->delete();
+      return $this;
     }
 }

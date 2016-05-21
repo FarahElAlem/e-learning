@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Content;
 
 class ContentController extends Controller
 {
@@ -16,10 +17,11 @@ class ContentController extends Controller
   public function create(Request $request)
   {
       Content::create(array(
-      'article' => $request->input('article')
+      'article' => $request->input('article'),
+      'section_id' => $request->input('section_id')
     ));
-
-      return Response()->json(array('success' => true));
+    
+    return Response()->json(array('success' => Content::orderby('updated_at', 'desc')->first()));
   }
 
   public function update(Request $request,$id)

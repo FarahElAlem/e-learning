@@ -45,7 +45,7 @@ class SubjectTableSeeder extends Seeder
         'article' => 'first article on section one',
         'section_id' => 2
       ));
-      
+
 
     }
 }
