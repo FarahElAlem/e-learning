@@ -6,13 +6,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Data Tables
-      <small>advanced tables</small>
+      User Management
+      <small>advanced management</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Tables</a></li>
-      <li class="active">Data tables</li>
+      <li><a href="#">User</a></li>
+      <li class="active">All</li>
     </ol>
   </section>
 
@@ -31,7 +31,7 @@
               <tr>
                 <th>No.</th>
                 <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Email</th>
                 <th>Level</th>
               </tr>
               </thead>
@@ -39,7 +39,7 @@
               <tr ng-repeat="user in users">
                 <td><%$index%></td>
                 <td><%user.firstname%></td>
-                <td><%item.lastname%></td>
+                <td><%user.lastname%></td>
                 <td><%user.icon%></td>
               </tr>
               </tbody>
