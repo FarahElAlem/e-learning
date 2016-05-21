@@ -38,24 +38,24 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2">
-            <button class="btn btn-info"  ng-click="openEditPage(course.id)">
+            <button class="btn btn-block btn-warning"  ng-click="openEditPage(course.id)">
   <i class="material-icons mdl-color-text--black">description</i>
 </button>
 			</div>
             <div class="col-md-2">
-<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+<button class="btn btn-block btn-info">
   <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
 </button>
 			</div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2">
-<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="deleteCourse(course.id)">
+            <div class="col-md-3"></div>
+            <div class="col-md-1">
+<button class="btn btn-danger" ng-click="deleteCourse(course.id)">
   <i class="material-icons f18 mdl-color-text--red-400">clear</i>
 </button>
 			</div>
            </div>
-              <%course.about%>
           </div>
+          <%course.about%>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
