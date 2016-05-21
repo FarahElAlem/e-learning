@@ -13,7 +13,15 @@ class AdminController extends Controller
     }
 
     public function index(){
-      return "Index";
+      return view('admin.starter');
     }
-    
+
+    public function user(){
+      return view('admin.user');
+    }
+
+    public function addUser(){
+      return view('admin.adduser');
+    }
+
 }

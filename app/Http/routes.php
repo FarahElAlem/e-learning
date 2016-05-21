@@ -82,5 +82,6 @@ Route::group(array('prefix'=>'api'),function()
 Route::group(array('prefix'=>'admin'),function()
 {
   Route::get('/','AdminController@index');
-  Route::get('user','AdminController@dashboard');
+  Route::get('user','AdminController@user');
+  Route::get('user/add','AdminController@addUser');
 });
