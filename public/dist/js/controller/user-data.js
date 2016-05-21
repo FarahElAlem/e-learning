@@ -26,7 +26,6 @@
         data.push(user);
       });
       $scope.users = data;
-
     });
   }
 

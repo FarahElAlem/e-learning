@@ -5,7 +5,7 @@ angular.module('AdminApp').controller('EditUserController', UserController);
       {
         $http({
           method:'PUT',
-          url: config.url+'user/'+$routeParams.id,
+          url: config.url+'user/'+$scope.id,
           data: {
             name:$scope.name,
             email: $scope.email,
@@ -13,7 +13,7 @@ angular.module('AdminApp').controller('EditUserController', UserController);
             isAdmin: $scope.isAdmin
           }}).then(function(response){
             console.log(response);
-            $location.path('/users/all');
+            $window.location.href = config.admin+'user';
 
         },function(error){
           console.log(error);
@@ -26,7 +26,6 @@ angular.module('AdminApp').controller('EditUserController', UserController);
       $scope.load = function()
       {
         $http.get(config.url+'user/'+$scope.id).then(function(response){
-          console.log(response);
           $scope.dataUser = response.data;
           $scope.name = $scope.dataUser.name;
           $scope.email = $scope.dataUser.email;

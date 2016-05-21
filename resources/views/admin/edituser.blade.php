@@ -36,7 +36,7 @@
           </div>
           <div class="form-group" ng-class="{'has-error': msg.name}">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" ng-model="emil" placeholder="Enter email">
+            <input type="email" class="form-control" ng-model="email" placeholder="Enter email">
             <span class="help-block"><%msg.email[0]%></span>
           </div>
           <div class="form-group" ng-class="{'has-error': msg.password}">

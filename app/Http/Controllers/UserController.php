@@ -34,7 +34,7 @@ class UserController extends Controller
         if($request->has('email'))$user->email = $request->input('email');
         if($request->has('isAdmin')&&$request->input('isAdmin')=="true")
         {
-          $user->roles()->attach(1);
+          if(!$user->hasRole('admin'))$user->roles()->attach(1);
         }
         else {
           $user->detachAllRoles();
