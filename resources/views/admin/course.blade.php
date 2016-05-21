@@ -32,8 +32,8 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-          
-            <button ng-click="publish(course)" class="btn btn-block btn-lg" ng-class="{'danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
+          <div class="btn-group" >
+            <button ng-click="publish(course)" class="btn btn-info" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"  ng-click="openEditPage(course.id)">
   <i class="material-icons mdl-color-text--black">description</i>
 </button>
@@ -44,6 +44,7 @@
   <i class="material-icons f18 mdl-color-text--red-400">clear</i>
 </button>
               <%course.about%>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>
