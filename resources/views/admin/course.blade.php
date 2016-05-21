@@ -32,19 +32,29 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-          <div class="btn-group" >
-            <button ng-click="publish(course)" class="btn btn-info" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"  ng-click="openEditPage(course.id)">
+          <div class "row">
+      		<div class="col-md-3">
+            <button ng-click="publish(course)" class="btn btn-success" ng-class="{'btn-danger':course.statusText=='unPublish','btn-success':course.statusText=='Publish'}"><%course.statusText%></button>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+            <button class="btn btn-info"  ng-click="openEditPage(course.id)">
   <i class="material-icons mdl-color-text--black">description</i>
 </button>
+			</div>
+            <div class="col-md-2">
 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
   <a href="{{ url('/admin/course/section')}}/<%course.id%>"><i class="material-icons f18">list</i></a>
 </button>
+			</div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-click="deleteCourse(course.id)">
   <i class="material-icons f18 mdl-color-text--red-400">clear</i>
 </button>
+			</div>
+           </div>
               <%course.about%>
-            </div>
           </div>
           <!-- /.box-body -->
         </div>
