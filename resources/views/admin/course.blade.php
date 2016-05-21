@@ -24,7 +24,7 @@
           <div class="box-header with-border">
             <h3 class="box-title"><%course.name%></h3>
             <button type"button" class="btn btn-default">
-              <i class="class="fa fa-align-left""></i>
+              <i class="fa fa-align-left"></i>
 			</button>
             <div class="box-tools pull-right">
                   <i class="fa fa-fw fa-cog" ng-click="openEditPage(course.id)"></i>
