@@ -50,6 +50,10 @@
 
       };
 
+      $scope.openUsers = function(id){
+        $window.location.href = config.admin+'course/'+id+'/users';
+      };
+
       $scope.openEditPage = function(id){
         $window.location.href = config.admin+'course/edit/'+id;
       };

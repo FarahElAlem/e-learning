@@ -173,18 +173,19 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Course</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
+          <ul class="treeview-menu active">
             <li><a href="{{url('admin/course')}}">All Course</a></li>
+            <li><a href="{{url('admin/course/add')}}">Add Course</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#"><i class="fa fa-link"></i> <span>User</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
             <li><a href="{{url('admin/user')}}">All</a></li>
             <li><a href="{{url('admin/user/add')}}">Add Users</a></li>
           </ul>
         </li>
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
+        <li class="active"><a href="{{url('logout')}}"><i class="fa fa-link"></i> <span>Logout</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -306,6 +307,7 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/SectionController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/VideoUploadController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/ActionSectionController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseAddController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/AddSectionController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>

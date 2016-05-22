@@ -24,6 +24,7 @@
           <div class="box-header with-border">
             <a href="{{url('/admin/course/')}}/<%course.id%>"><h2 class="box-title"><%course.name%></h2></a>
             <div class="box-tools pull-right">
+                  <i class="fa fa-user" ng-click="openUsers(course.id)"></i>
                   <i class="fa fa-fw fa-cog" ng-click="openEditPage(course.id)"></i>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
               </button>

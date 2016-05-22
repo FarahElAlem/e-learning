@@ -16,6 +16,7 @@ class SectionController extends Controller
       $section = Section::with('sectionChild')->orderBy('order')->get()->where('section_id',null);
       foreach($section as $sec)
       {
+        $sec->section->load('quiz','content','video','sectionChild');
         array_push($data,$sec);
       }
       return Response()->json($data);
@@ -87,6 +88,7 @@ class SectionController extends Controller
     foreach($section->section as $sec)
     {
       $sec->load('quiz','content','video','section');
+      $sec->section->load('quiz','content','video','section');
     }
     return Response()->json($section);
   }
@@ -98,7 +100,7 @@ class SectionController extends Controller
     $section->load('quiz','content','video','section');
     foreach($section as $sec)
     {
-      $sec->section->load('quiz','content','video');
+      $sec->section->load('quiz','content','video','section');
       array_push($data,$sec);
     }
     $course = Course::findOrFail($id)->name;

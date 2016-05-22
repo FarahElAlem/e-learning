@@ -41,7 +41,6 @@ class CourseLearnController extends Controller
                 return Redirect::to('course/learn/'.$id);
             }
         }
-
         return view('course', $data);
     }
     public function article($id, $contentId)

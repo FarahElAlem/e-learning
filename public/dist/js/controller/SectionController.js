@@ -1,6 +1,7 @@
-angular.module("AdminApp").controller('SectionController', function($http, $scope, config) {
+angular.module("AdminApp").controller('SectionController', function($http, $scope, config,$window) {
 
     $scope.contentType = function() {
+      console.log($scope.subsection);
         if ($scope.subsection.content != undefined) {
           $scope.haveContent = true;
           $scope.articleContent = true;
@@ -12,10 +13,14 @@ angular.module("AdminApp").controller('SectionController', function($http, $scop
           $scope.haveContent = true;
             return "Video";
         } else if ($scope.subsection.section == undefined) {
+          $scope.haveContent = false;
             return "Please Add";
         } else if ($scope.subsection.section.length > 0) {
+          $scope.haveContent = false;
             return "Section";
         }
+        console.log("ff");
+        $scope.haveContent = false;
         return "Please Add";
     };
 
@@ -42,9 +47,8 @@ angular.module("AdminApp").controller('SectionController', function($http, $scop
 
     $scope.type = $scope.contentType();
     if ($scope.type == 'Section') {
-        $scope.showChildSection();
     }
-    
+
     $scope.isPublish = ($scope.subsection.status)? 'Unpublish':'Publish';
     $scope.publishContent = function() {
       var send = {
@@ -86,6 +90,7 @@ angular.module("AdminApp").controller('SectionController', function($http, $scop
           $scope.type = "Content";
           $scope.subsection.haveContent = true;
           angular.element(modal).modal('hide');
+          $window.location.reload();
         });
     };
 

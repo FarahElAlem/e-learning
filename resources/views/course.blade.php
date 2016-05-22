@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <div class="col-sm-8">
-          <video controls data-setup='{ "example_option": true, "techOrder": ["html5","flash"] }' class="art-preview lazy video-js vjs-default-skin vjs-big-play-centered vjs-16-9" src="/learning/video/QW5ndWxhciAyIEZ1bmRhbWVudGFscyAgVWRlbXkubXA0.mp4"></video>
+          <img src="{{$course->src}}"/>
         </div>
         <div class="col-sm-4">
           <div class="row">

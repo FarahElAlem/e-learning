@@ -125,8 +125,8 @@
     <li><a href="#" type="button" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%subsection.id%>">Edit</a></li>
   </ul>
 </div>
-<a ng-if="type=='Section'" href="{{url('/admin/course/section')}}/<%section.id%>" ><button  class="btn btn-block btn-success">Next Section</button></a>
-<button ng-hide="haveContent" type="button" class="btn btn-block btn-success" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%subsection.id%>">Add</button>
+<a ng-show="type=='Section'" href="{{url('/admin/course/section')}}/<%section.id%>" ><button  class="btn btn-block btn-success">Next Section</button></a>
+<button ng-show="type=='Please Add'" type="button" class="btn btn-block btn-success" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%subsection.id%>">Add</button>
        </div>
       </div>
       <!-- Modal -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Course;
 
 class AdminController extends Controller
 {
@@ -33,6 +34,10 @@ class AdminController extends Controller
       return view('admin.course');
     }
 
+    public function addCourse(){
+      return view('admin.addcourse');
+    }
+
     public function editCourse($id){
       $data['id'] = $id;
       return view('admin.editcourse',$data);
@@ -48,5 +53,10 @@ class AdminController extends Controller
       $data['id'] = $id;
       $data['pagetype'] = 1;
       return view('admin.editcourselist',$data);
+    }
+
+    public function viewUser($id){
+      $data['users'] = Course::findOrFail($id)->users;
+      return view('admin.users',$data);
     }
 }
