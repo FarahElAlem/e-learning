@@ -54,7 +54,7 @@
               <input type="checkbox" ng-model="isAdmin"> Admin
             </label>
           </div>
-          <button type="button" ng-controller="DeleteUserController" ng-click="delete({{$id}})" class="btn btn-default btn-block btn-flat">.btn-block .btn-flat</button>
+          <button type="button" ng-controller="DeleteUserController" ng-click="delete({{$id}})" class="btn btn-block btn-danger">Delete This User</button>
         </div>
         <!-- /.box-body -->
 

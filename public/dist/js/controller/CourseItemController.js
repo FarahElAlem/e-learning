@@ -1,42 +1,40 @@
 angular.module("AdminApp").controller('CourseItemController', function($http, $scope,config) {
-  //$scope.showAddSection = false;
 
-    // $scope.loadPath = function() {
-    //     function ok(response) {
-    //         $scope.path = '<a href="#courses/edit-curriculum/edit/' + $scope.section_id + '">' + response.title + "</a> / " + $scope.path;
-    //         $scope.section_id = response.section_id;
-    //         if ($scope.section_id != undefined) $scope.loadPath();
-    //         else  $http.get(config.url+"course/" + $scope.coursesData.course_id).then(function(res) {
-    //                         $scope.path = '<a href="#courses/edit-curriculum/' + $scope.coursesData.course_id + '">' + res.data.name + "</a> / " + $scope.path;
-    //                         console.log(res.data.name);
-    //                     });
-    //     }
-    //     var url = config.url+"section/" + $scope.section_id;
-    //     if($scope.section_id==null&&$routeParams.id!=undefined)
-    //     $http.get(config.url+"course/" + $scope.coursesData.course_id).then(function(res) {
-    //         $scope.path = '<a href="#courses/edit-curriculum/' + $scope.coursesData.course_id + '">' + res.data.name + "</a> / " + $scope.path;
-    //         console.log(res.data.name);
-    //     });
-    //     return $http.get(url).success(ok);
-    // };
-
-    // $scope.toggleAddSection = function() {
-    //     $scope.showAddSection = !$scope.showAddSection;
-    // };
-
-    $scope.init = function(id){
-      $scope.id = id;
-      $scope.url = config.url+"section/all/" + $scope.id;
-      $scope.loadData();
+    $scope.loadPath = function() {
+        function ok(response) {
+            $scope.path = '<li><a href="/learning/public/admin/course/section/' + $scope.findsection_id + '">' + response.title + "</a> </li> " + $scope.path;
+            $scope.findsection_id = response.section_id;
+            if ($scope.findsection_id != undefined) $scope.loadPath();
+            else  $http.get(config.url+"course/" + $scope.courseData.course_id).then(function(res) {
+                            $scope.path = '<li><a href="/learning/public/admin/course/' + $scope.courseData.course_id + '">' + res.data.name + "</a> </li> " + $scope.path;
+                            console.log($scope.path);
+                        });
+        }
+        var url = config.url+"section/" + $scope.findsection_id;
+        return $http.get(url).success(ok);
+    };
+    $scope.senddata = function(course) {
+      $scope.sectionAction = course;
     };
 
+    $scope.init = function(id,type){
+      $scope.id = id;
+      $scope.pagetype = type;
+      if ($scope.pagetype==1) {
+    $scope.url = config.url+"section/all/" + $scope.id;
+} else {
+    $scope.url = config.url+"section/" + $scope.id;
+}
+      $scope.loadData();
+    };
     $scope.loadData = function() {
       $http.get($scope.url).success(function(response) {
           $scope.courseData = response;
           $scope.section_id = $scope.courseData.section_id;
+          $scope.findsection_id = $scope.section_id;
           $scope.coursename = $scope.courseData.title;
-          console.log($scope.courseData);
-          //$scope.loadPath();
+          $scope.path = $scope.courseData.title;
+          $scope.loadPath();
       });
     };
 });

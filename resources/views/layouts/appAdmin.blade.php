@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>Course System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -65,7 +65,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Course</b>Learn</span>
     </a>
 
     <!-- Header Navbar -->
@@ -305,11 +305,14 @@ desired effect
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/CourseItemController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/SectionController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/VideoUploadController.js') }}"></script>
+<script charset="utf-8" src="{{ URL::asset('dist/js/controller/ActionSectionController.js') }}"></script>
 <script charset="utf-8" src="{{ URL::asset('dist/js/controller/AddSectionController.js') }}"></script>
 <script src="{{ URL::asset('bower_components/angular-datatables/dist/angular-datatables.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular-sanitize.min.js') }}"></script>
 <script src="{{ URL::asset('/bower_components/textAngular/dist/textAngular.min.js') }}"></script>
+<script src="{{ URL::asset('/bower_components/jquery-ui/jquery-ui.js') }}"></script>
+<script src="{{ URL::asset('/bower_components/angular-dragdrop/src/angular-dragdrop.min.js') }}"></script>
 <script src="//vjs.zencdn.net/5.8/video.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

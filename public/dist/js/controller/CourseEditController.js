@@ -14,7 +14,7 @@ angular.module('AdminApp').controller('CourseEditController', CourseEditControll
             $scope.url = config.url+'image';
             Upload.upload({
                 url: $scope.url,
-                data: {file: $scope.file,course_id:$routeParams.courseId}
+                data: {file: $scope.file,course_id:$scope.id}
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
                 $location.path('/courses/gallery');
@@ -22,7 +22,7 @@ angular.module('AdminApp').controller('CourseEditController', CourseEditControll
                 console.log('Error status: ' + resp.status);
             });
           } else {
-            $location.path('/courses/gallery');
+            $window.location.href = config.admin+'course';
           }
         });
       };

@@ -39,11 +39,14 @@ class AdminController extends Controller
     }
 
     public function section($id) {
-       return "section";
+      $data['id'] = $id;
+      $data['pagetype'] = 0;
+      return view('admin.editcourselist',$data);
     }
 
     public function courseList($id){
       $data['id'] = $id;
+      $data['pagetype'] = 1;
       return view('admin.editcourselist',$data);
     }
 }

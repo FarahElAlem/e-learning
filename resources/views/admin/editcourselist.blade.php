@@ -4,13 +4,44 @@
 
 <div class="content-wrapper" ng-app="AdminApp">
   <!-- Content Header (Page header) -->
-  <div  ng-controller="CourseItemController" ng-init="init({{$id}})">
+  <div  ng-controller="CourseItemController" ng-init="init({{$id}},{{$pagetype}})">
+
+    <!-- Modal -->
+    <div class="modal fade" ng-controller="ActionSectionController" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit Section</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" ng-model="title" class="form-control" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" ng-model="description" class="form-control" placeholder="Enter description">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-block btn-danger" ng-click="deleteSection()">Delete Section</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="saveTitle()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   <section class="content-header" >
     <h1>
       Curriculum
       <small><%coursename%> Course</small>
     </h1>
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" ng-bind-html="path">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="#">Tables</a></li>
       <li class="active">Data tables</li>
@@ -37,16 +68,16 @@
 
         <div class="form-group">
           <label>Name</label>
-          <input type="text" ng-model="name" class="form-control" placeholder="Enter ...">
+          <input type="text" ng-model="name" class="form-control" placeholder="Enter Name">
         </div>
         <div class="form-group">
-          <label>Objective</label>
-          <input type="text" ng-model="objective" class="form-control" placeholder="Enter ...">
+          <label>Description</label>
+          <input type="text" ng-model="objective" class="form-control" placeholder="Enter Description">
         </div>
         <div class="form-group">
           <label>Section</label>
-          <select class="form-control" ng-model="sectionid" required>
-            <option value="">This course</option>
+          <select class="form-control" ng-model="sectionid">
+            <option value="@if($pagetype==0) {{$id}}  @endif">This course</option>
             <option ng-repeat="section in courseData.section" value="<%section.id%>">Section <%section.title%></option>
           </select>
         </div>
@@ -74,12 +105,13 @@
   <div class="box-body">
     <div class="panel panel-success" ng-repeat="section in courseData.section">
   <!-- Default panel contents -->
-  <div class="panel-heading"><strong>Section <%$index+1%> - <%section.title%></strong></div>
+  <div class="panel-heading" data-toggle="modal"  ng-click="senddata(section)"  data-target="#myModal"><strong>Section <%$index+1%> - <%section.title%></strong></div>
   <ul class="list-group">
-    <li class="list-group-item"  ng-repeat="section in section.section" ng-controller="SectionController">
+    <li class="list-group-item"  ng-model="section.section" data-jqyoui-options="{revert: 'invalid'}" jqyoui-droppable="{index: <%$index%>,onDrop: onDragCus(section.section)}" jqyoui-draggable="{animate:true, index: <%$index%>, insertInline: true}"
+                        data-drag="true" data-drop="true" ng-repeat="subsection in section.section" ng-controller="SectionController">
       <div class="row">
         <div class="col-xs-12 col-md-10">
-          Lecture : <a ng-show="type=='Section'" href="{{url('/admin/course/section')}}/<%section.id%>" ><%section.title%> </a> <span ng-show="type!='Section'"><%section.title%></span></br>
+          Lecture : <span data-toggle="modal" ng-click="senddata(subsection)" data-target="#myModal"><%subsection.title%> </a></br>
           <%type%>
         </div>
         <div class="col-xs-12 col-md-2">
@@ -90,19 +122,20 @@
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#" type="button" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%section.id%>">Edit</a></li>
+    <li><a href="#" type="button" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%subsection.id%>">Edit</a></li>
   </ul>
 </div>
-<button ng-hide="haveContent" type="button" class="btn btn-block btn-success" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%section.id%>">Add</button>
+<a ng-if="type=='Section'" href="{{url('/admin/course/section')}}/<%section.id%>" ><button  class="btn btn-block btn-success">Next Section</button></a>
+<button ng-hide="haveContent" type="button" class="btn btn-block btn-success" data-toggle="modal" ng-click="openModal()" data-target="#editModal<%subsection.id%>">Add</button>
        </div>
       </div>
       <!-- Modal -->
-      <div class="modal fade" id="editModal<%section.id%>" tabindex="-1" role="dialog">
+      <div class="modal fade" id="editModal<%subsection.id%>" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><%action%> <span ng-show="pass"><%type%></span> <%section.title%> Lecture</h4>
+              <h4 class="modal-title"><%action%> <span ng-show="pass"><%type%></span> <%subsection.title%> Lecture</h4>
             </div>
             <div class="modal-body">
               <div ng-show="pass">
@@ -120,17 +153,16 @@
                           </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" ng-click="upload(section.id)">Save changes</button>
+                              <button type="button" class="btn btn-primary" ng-click="upload(subsection.id,'#editModal'+subsection.id)">Save changes</button>
                           </div>
                       </form>
                   </div>
               </div>
               <div ng-hide="content">
-                  <h3 class="box-title"><%section.title%></h3>
-                  <div text-angular ng-model="section.article"></div>
+                  <div text-angular ng-model="subsection.article"></div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" ng-click="saveArticle()">Save changes</button>
+                      <button type="button" class="btn btn-primary" ng-click="saveArticle('#editModal'+subsection.id)">Save changes</button>
                   </div>
 
               </div>
@@ -148,7 +180,7 @@
               </a>
                   </div>
                   <div class="col-md-4">
-                    <a class="btn btn-app" href="{{url('/admin/course/section')}}/<%section.id%>">
+                    <a class="btn btn-app" href="{{url('/admin/course/section')}}/<%subsection.id%>">
                 <i class="fa fa-edit"></i> Section
               </a>
                   </div>
@@ -170,6 +202,8 @@
   </section>
   <!-- /.content -->
 </div>
+
+
 </div>
 
 @endsection
